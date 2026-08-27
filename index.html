@@ -72,7 +72,7 @@
 
         /* LOGO */
 
-        .logo.jpg {
+        .logo {
             width: 190px;
             max-width: 90%;
             border-radius: 20px;
@@ -277,10 +277,12 @@
             transform: scale(1.03);
         }
 
-        video {
+        .video-box iframe {
             width: 100%;
+            height: 315px;
             margin-top: 15px;
             border-radius: 12px;
+            border: none;
         }
 
         /* INTEGRANTES */
@@ -360,6 +362,10 @@
             .descripcion {
                 padding: 25px;
             }
+
+            .video-box iframe {
+                height: 220px;
+            }
         }
 
     </style>
@@ -374,7 +380,7 @@
     <header class="fondo-animado">
 
         <img
-            src="IMG_8254.jpeg"
+            src="logo.jpg"
             alt="Logo Innovabots"
             class="logo"
         >
@@ -544,38 +550,16 @@
 
             <div class="video-box">
 
-                <h3>Proyecto 1</h3>
+                <h3>
+                    Cesto de basura con material reciclado
+                </h3>
 
-                <video controls>
-
-                    <source
-                        src="video1.mp4"
-                        type="video/mp4"
-                    >
-
-                    Tu navegador no admite este video.
-
-                </video>
-
-            </div>
-
-
-            <!-- VIDEO 2 -->
-
-            <div class="video-box">
-
-                <h3>Proyecto 2</h3>
-
-                <video controls>
-
-                    <source
-                        src="video2.mp4"
-                        type="video/mp4"
-                    >
-
-                    Tu navegador no admite este video.
-
-                </video>
+                <iframe
+                    src="https://www.youtube.com/embed/B7p4c3quTf4"
+                    title="Cesto de basura con material reciclado"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
 
             </div>
 
@@ -626,7 +610,7 @@
     <footer>
 
         <p class="innovabots">
-             INNOVABOTS
+            🤖 INNOVABOTS
         </p>
 
         <br>
