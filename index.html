@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>INNOVABOTS | Innovación y Tecnología</title>
+
+    <style>
+
+        :root {
+            --azul-oscuro: #202565;
+            --azul: #353b8f;
+            --turquesa: #42d8c8;
+            --turquesa-claro: #7ff5e9;
+            --blanco: #ffffff;
+            --fondo: #f4f6fa;
+            --texto: #252525;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--fondo);
+            color: var(--texto);
+            overflow-x: hidden;
+        }
+
+        /* FONDO ANIMADO */
+
+        .fondo-animado {
+            background: linear-gradient(
+                135deg,
+                var(--azul-oscuro),
+                var(--azul),
+                var(--turquesa)
+            );
+
+            background-size: 300% 300%;
+            animation: moverFondo 10s ease infinite;
+        }
+
+        @keyframes moverFondo {
+
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* ENCABEZADO */
+
+        header {
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        /* LOGO */
+
+        .logo.jpg {
+            width: 190px;
+            max-width: 90%;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            animation: flotar 3s ease-in-out infinite;
+        }
+
+        @keyframes flotar {
+
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* TÍTULO */
+
+        header h1 {
+            font-size: 50px;
+            letter-spacing: 6px;
+            animation: aparecer 2s ease;
+        }
+
+        header p {
+            margin-top: 15px;
+            font-size: 20px;
+            animation: aparecer 3s ease;
+        }
+
+        /* ANIMACIÓN APARECER */
+
+        @keyframes aparecer {
+
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* MENÚ */
+
+        nav {
+            background-color: var(--azul-oscuro);
+            text-align: center;
+            padding: 18px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 12px;
+            font-weight: bold;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--turquesa);
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background-color: var(--turquesa);
+            left: 0;
+            bottom: -7px;
+            transition: 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* SECCIONES */
+
+        section {
+            padding: 70px 10%;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 35px;
+            color: var(--azul-oscuro);
+            margin-bottom: 35px;
+        }
+
+        /* INICIO */
+
+        .inicio {
+            text-align: center;
+            background-color: white;
+        }
+
+        .inicio p {
+            max-width: 700px;
+            margin: auto;
+            font-size: 19px;
+            line-height: 1.8;
+        }
+
+        /* DESCRIPCIÓN */
+
+        .descripcion {
+            background-color: white;
+            max-width: 1000px;
+            margin: auto;
+            padding: 40px;
+            border-radius: 25px;
+            font-size: 17px;
+            line-height: 1.9;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 6px solid var(--turquesa);
+            transition: 0.4s;
+        }
+
+        .descripcion:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        /* PROYECTOS */
+
+        .proyectos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .tarjeta {
+            background-color: white;
+            padding: 30px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.4s, box-shadow 0.4s;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.18);
+        }
+
+        .icono {
+            font-size: 60px;
+            margin-bottom: 15px;
+            animation: flotar 4s ease-in-out infinite;
+        }
+
+        .tarjeta h3 {
+            color: var(--azul-oscuro);
+            margin-bottom: 15px;
+        }
+
+        /* VIDEOS */
+
+        .videos {
+            background: linear-gradient(
+                135deg,
+                var(--azul-oscuro),
+                var(--azul)
+            );
+            color: white;
+        }
+
+        .videos h2 {
+            color: var(--turquesa-claro);
+        }
+
+        .contenedor-videos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .video-box {
+            background-color: white;
+            color: var(--texto);
+            padding: 20px;
+            border-radius: 20px;
+            transition: transform 0.4s;
+        }
+
+        .video-box:hover {
+            transform: scale(1.03);
+        }
+
+        video {
+            width: 100%;
+            margin-top: 15px;
+            border-radius: 12px;
+        }
+
+        /* INTEGRANTES */
+
+        .integrantes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 25px;
+        }
+
+        .integrante {
+            background: linear-gradient(
+                135deg,
+                var(--azul-oscuro),
+                var(--azul)
+            );
+
+            color: white;
+            padding: 30px 20px;
+            border-radius: 20px;
+            text-align: center;
+            font-weight: bold;
+            transition: 0.4s;
+        }
+
+        .integrante:hover {
+            background: linear-gradient(
+                135deg,
+                var(--turquesa),
+                var(--azul)
+            );
+
+            transform: rotate(2deg) scale(1.05);
+        }
+
+        /* PIE DE PÁGINA */
+
+        footer {
+            background-color: var(--azul-oscuro);
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .innovabots {
+            color: var(--turquesa);
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        /* CELULAR */
+
+        @media (max-width: 700px) {
+
+            header h1 {
+                font-size: 32px;
+            }
+
+            header p {
+                font-size: 16px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 8px;
+                font-size: 14px;
+            }
+
+            section {
+                padding: 50px 20px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            .descripcion {
+                padding: 25px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <!-- ENCABEZADO -->
+
+    <header class="fondo-animado">
+
+        <img
+            src="IMG_8254.jpeg"
+            alt="Logo Innovabots"
+            class="logo"
+        >
+
+        <h1>INNOVABOTS</h1>
+
+        <p>
+            Innovación • Tecnología • Creatividad
+        </p>
+
+    </header>
+
+
+    <!-- MENÚ -->
+
+    <nav>
+
+        <a href="#inicio">Inicio</a>
+
+        <a href="#innovabots">
+            ¿Qué es Innovabots?
+        </a>
+
+        <a href="#proyectos">
+            Proyectos
+        </a>
+
+        <a href="#videos">
+            Videos
+        </a>
+
+        <a href="#integrantes">
+            Integrantes
+        </a>
+
+    </nav>
+
+
+    <!-- INICIO -->
+
+    <section id="inicio" class="inicio">
+
+        <h2>🤖 Bienvenidos a Innovabots</h2>
+
+        <p>
+            Un proyecto donde la tecnología, la creatividad
+            y el cuidado del medio ambiente se unen para
+            construir ideas innovadoras y sostenibles.
+        </p>
+
+    </section>
+
+
+    <!-- ¿QUÉ ES INNOVABOTS? -->
+
+    <section id="innovabots">
+
+        <h2>¿Qué es Innovabots?</h2>
+
+        <div class="descripcion">
+
+            <p>
+                Innovabots es un proyecto estudiantil que combina la tecnología,
+                la creatividad y el cuidado del medio ambiente. Su principal
+                objetivo es demostrar que es posible crear robots y desarrollar
+                proyectos tecnológicos utilizando materiales reciclables y
+                componentes reutilizados.
+            </p>
+
+            <br>
+
+            <p>
+                Este proyecto nace como una iniciativa para promover la innovación
+                responsable y generar conciencia sobre la importancia de reducir
+                los residuos y aprovechar los recursos disponibles. A través de
+                la construcción de robots con materiales que normalmente podrían
+                considerarse desechos, Innovabots busca darles una nueva utilidad
+                y demostrar que la sostenibilidad puede ir de la mano con la
+                ciencia y la tecnología.
+            </p>
+
+            <br>
+
+            <p>
+                Además, Innovabots permite aplicar conocimientos de áreas como la
+                programación, la electrónica, la mecánica y el diseño, mientras
+                se fomenta la creatividad, el trabajo en equipo y el compromiso
+                con el planeta.
+            </p>
+
+            <br>
+
+            <p>
+                Por medio de esta iniciativa, se busca inspirar a otros estudiantes
+                a crear, aprender e innovar con propósito, construyendo soluciones
+                que contribuyan a un futuro más verde, inteligente y responsable.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROYECTOS -->
+
+    <section id="proyectos">
+
+        <h2>💡 Nuestros proyectos</h2>
+
+        <div class="proyectos">
+
+            <div class="tarjeta">
+
+                <div class="icono">🤖</div>
+
+                <h3>Robot reciclable</h3>
+
+                <p>
+                    Creación de robots utilizando materiales
+                    reciclables y componentes reutilizados.
+                </p>
+
+            </div>
+
+
+            <div class="tarjeta">
+
+                <div class="icono">💻</div>
+
+                <h3>Tecnología creativa</h3>
+
+                <p>
+                    Desarrollo de proyectos tecnológicos
+                    utilizando creatividad e innovación.
+                </p>
+
+            </div>
+
+
+            <div class="tarjeta">
+
+                <div class="icono">♻️</div>
+
+                <h3>Reciclaje tecnológico</h3>
+
+                <p>
+                    Reutilización de materiales para darles
+                    una nueva vida y crear soluciones.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- VIDEOS -->
+
+    <section id="videos" class="videos">
+
+        <h2>🎥 Nuestros videos</h2>
+
+        <div class="contenedor-videos">
+
+            <!-- VIDEO 1 -->
+
+            <div class="video-box">
+
+                <h3>Proyecto 1</h3>
+
+                <video controls>
+
+                    <source
+                        src="video1.mp4"
+                        type="video/mp4"
+                    >
+
+                    Tu navegador no admite este video.
+
+                </video>
+
+            </div>
+
+
+            <!-- VIDEO 2 -->
+
+            <div class="video-box">
+
+                <h3>Proyecto 2</h3>
+
+                <video controls>
+
+                    <source
+                        src="video2.mp4"
+                        type="video/mp4"
+                    >
+
+                    Tu navegador no admite este video.
+
+                </video>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTEGRANTES -->
+
+    <section id="integrantes">
+
+        <h2>👥 Integrantes</h2>
+
+        <div class="integrantes">
+
+            <div class="integrante">
+                VALERY MÉNDEZ
+            </div>
+
+            <div class="integrante">
+                MELANNY OLIVEROS
+            </div>
+
+            <div class="integrante">
+                ISABEL SOFÍA ZABALA
+            </div>
+
+            <div class="integrante">
+                LAURA SOFÍA CAMELO
+            </div>
+
+            <div class="integrante">
+                VERÓNICA JIMÉNEZ
+            </div>
+
+            <div class="integrante">
+                EVELYN OBANDO
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PIE DE PÁGINA -->
+
+    <footer>
+
+        <p class="innovabots">
+             INNOVABOTS
+        </p>
+
+        <br>
+
+        <p>
+            Innovación, creatividad y tecnología
+        </p>
+
+        <br>
+
+        <p>
+            Proyecto estudiantil • 2026
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
