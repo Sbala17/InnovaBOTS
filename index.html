@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>INNOVABOTS | Innovación y Tecnología</title>
+
+    <style>
+
+        :root {
+            --azul-oscuro: #202565;
+            --azul: #353b8f;
+            --azul-claro: #667eea;
+            --verde: #20b486;
+            --verde-claro: #53d69e;
+            --blanco: #ffffff;
+            --gris: #f4f7fb;
+            --texto: #25283d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--gris);
+            color: var(--texto);
+            line-height: 1.6;
+        }
+
+        /* ================= MENÚ ================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(32, 37, 101, 0.97);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            min-height: 75px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 25px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo.jpg {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .logo span {
+            color: var(--verde-claro);
+        }
+
+        .menu {
+            display: flex;
+            list-style: none;
+            gap: 23px;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            color: var(--verde-claro);
+        }
+
+        /* ================= INICIO ================= */
+
+        .hero {
+            min-height: 100vh;
+            padding: 130px 25px 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(83, 214, 158, 0.2),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 80% 80%,
+                    rgba(102, 126, 234, 0.3),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #202565,
+                    #353b8f
+                );
+
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            animation: aparecer 1.2s ease;
+        }
+
+        .hero-logo {
+            width: 180px;
+            max-width: 70%;
+            margin-bottom: 20px;
+            animation: flotar 3s ease-in-out infinite;
+            border-radius: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: var(--verde-claro);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 750px;
+            margin: auto;
+        }
+
+        .lema {
+            margin-top: 25px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--verde-claro);
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 14px 28px;
+            border-radius: 30px;
+            background: var(--verde);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px) scale(1.03);
+            background: var(--verde-claro);
+            color: var(--azul-oscuro);
+        }
+
+        /* ================= GENERAL ================= */
+
+        section {
+            padding: 90px 25px;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .titulo {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .titulo h2 {
+            color: var(--azul-oscuro);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .titulo p {
+            max-width: 750px;
+            margin: auto;
+            color: #666;
+        }
+
+        /* ================= NUESTRO PROYECTO ================= */
+
+        #proyecto {
+            background: white;
+        }
+
+        .proyecto-box {
+            background: linear-gradient(
+                135deg,
+                #f0fff9,
+                #f5f7ff
+            );
+
+            padding: 40px;
+            border-radius: 25px;
+            border-left: 7px solid var(--verde);
+
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.07);
+        }
+
+        .proyecto-box p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        /* ================= MISIÓN Y VISIÓN ================= */
+
+        .cards {
+            display: grid;
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(280px, 1fr)
+                );
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, 0.08);
+
+            transition: 0.35s;
+
+            border-top: 5px solid var(--verde);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+
+            box-shadow:
+                0 15px 35px rgba(0, 0, 0, 0.13);
+        }
+
+        .card-icon {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: var(--azul-oscuro);
+            margin-bottom: 12px;
+        }
+
+        /* ================= PROPUESTA DE VALOR ================= */
+
+        .propuesta {
+            background: var(--azul-oscuro);
+            color: white;
+        }
+
+        .propuesta .titulo h2 {
+            color: white;
+        }
+
+        .propuesta .titulo p {
+            color: #d9dcf5;
+        }
+
+        .valor-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .valor-texto {
+            font-size: 1.1rem;
+        }
+
+        .valor-lista {
+            list-style: none;
+        }
+
+        .valor-lista li {
+            background: rgba(255, 255, 255, 0.1);
+            margin-bottom: 12px;
+            padding: 15px;
+            border-radius: 12px;
+        }
+
+        .valor-lista li::before {
+            content: "✓";
+            color: var(--verde-claro);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* ================= OBJETIVOS ================= */
+
+        .objetivos {
+            display: grid;
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(250px, 1fr)
+                );
+            gap: 20px;
+        }
+
+        .objetivo {
+            background: white;
+            padding: 25px;
+            border-radius: 18px;
+
+            box-shadow:
+                0 8px 20px rgba(0, 0, 0, 0.07);
+
+            transition: 0.3s;
+        }
+
+        .objetivo:hover {
+            transform: translateY(-5px);
+        }
+
+        .numero {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--verde);
+            color: white;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        /* ================= EQUIPO ================= */
+
+        #equipo {
+            background: white;
+        }
+
+        .equipo {
+            display: grid;
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(210px, 1fr)
+                );
+            gap: 20px;
+        }
+
+        .persona {
+            text-align: center;
+            padding: 25px 15px;
+            background: var(--gris);
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        .persona:hover {
+            transform: translateY(-6px);
+        }
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            margin: auto auto 15px;
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--azul),
+                    var(--verde)
+                );
+
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .persona h3 {
+            color: var(--azul-oscuro);
+            font-size: 1.05rem;
+        }
+
+        .persona p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* ================= LEMA ================= */
+
+        .lema-section {
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--verde),
+                    #168e6a
+                );
+
+            color: white;
+        }
+
+        .lema-section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+
+        .lema-section p {
+            font-size: 1.2rem;
+        }
+
+        /* ================= VIDEOS ================= */
+
+        #videos {
+            background: var(--gris);
+        }
+
+        .videos {
+            display: grid;
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(280px, 1fr)
+                );
+            gap: 25px;
+        }
+
+        .video-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, 0.08);
+
+            transition: 0.3s;
+        }
+
+        .video-card:hover {
+            transform: translateY(-7px);
+        }
+
+        .video-top {
+            height: 150px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--azul-oscuro),
+                    var(--azul)
+                );
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 60px;
+            color: white;
+        }
+
+        .video-info {
+            padding: 22px;
+        }
+
+        .video-info h3 {
+            color: var(--azul-oscuro);
+            margin-bottom: 8px;
+        }
+
+        .video-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .video-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 18px;
+            border-radius: 20px;
+
+            background: var(--verde);
+            color: white;
+
+            text-decoration: none;
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .video-link:hover {
+            background: var(--azul);
+            transform: scale(1.05);
+        }
+
+        /* ================= FAQ ================= */
+
+        #faq {
+            background: white;
+        }
+
+        .faq {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        details {
+            background: var(--gris);
+            margin-bottom: 15px;
+            padding: 20px 25px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        details:hover {
+            background: #eafbf5;
+        }
+
+        summary {
+            font-weight: bold;
+            color: var(--azul-oscuro);
+            font-size: 1.05rem;
+        }
+
+        details p {
+            margin-top: 15px;
+            color: #555;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #171a4b;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer img {
+            width: 90px;
+            margin-bottom: 15px;
+            border-radius: 15px;
+        }
+
+        footer h2 {
+            color: var(--verde-claro);
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            color: #d8daf0;
+        }
+
+        .footer-lema {
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* ================= ANIMACIONES ================= */
+
+        @keyframes aparecer {
+
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        @keyframes flotar {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+
+        }
+
+        /* ================= CELULAR ================= */
+
+        @media (max-width: 800px) {
+
+            .menu {
+                display: none;
+            }
+
+            .valor-box {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+
+            .hero-logo {
+                width: 140px;
+            }
+
+            section {
+                padding: 70px 18px;
+            }
+
+            .proyecto-box {
+                padding: 25px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= MENÚ ================= -->
+
+    <header>
+
+        <nav>
+
+            <a href="#inicio" class="logo">
+
+                <img
+                    src="imagenes/logo.jpg"
+                    alt="Logo de Innovabots"
+                >
+
+                <span>
+                    INNOVABOTS
+                </span>
+
+            </a>
+
+
+            <ul class="menu">
+
+                <li>
+                    <a href="#proyecto">
+                        Proyecto
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#nosotros">
+                        Nosotros
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#objetivos">
+                        Objetivos
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#equipo">
+                        Equipo
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#videos">
+                        Videos
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#faq">
+                        FAQ
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- ================= INICIO ================= -->
+
+    <section
+        class="hero"
+        id="inicio"
+    >
+
+        <div class="hero-content">
+
+            <img
+                src="imagenes/logo.jpg"
+                alt="Logo Innovabots"
+                class="hero-logo"
+            >
+
+            <h1>
+                INNOVA<span>BOTS</span>
+            </h1>
+
+            <p>
+                Tecnología, creatividad y conciencia ambiental
+                para construir un futuro más innovador y sostenible.
+            </p>
+
+            <div class="lema">
+                "Pequeños robots, grandes ideas."
+            </div>
+
+            <a
+                href="#proyecto"
+                class="btn"
+            >
+                Conoce nuestro proyecto ↓
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= NUESTRO PROYECTO ================= -->
+
+    <section id="proyecto">
+
+        <div class="container">
+
+            <div class="titulo">
+
+                <h2>
+                    🚀 Nuestro Proyecto
+                </h2>
+
+                <p>
+                    Conoce la idea detrás de Innovabots
+                    y cómo unimos tecnología,
+                    creatividad y cuidado ambiental.
+                </p>
+
+            </div>
+
+
+            <div class="proyecto-box">
+
+                <p>
+                    Innovabots busca demostrar que la tecnología y el cuidado del medio ambiente pueden trabajar juntos. El proyecto consiste en diseñar y construir robots utilizando principalmente materiales reciclables, dándoles una nueva utilidad a objetos que normalmente podrían convertirse en residuos.
+                </p>
+
+                <p>
+                    Además de la construcción de los robots, desarrollamos una página web para presentar y dar a conocer todo el proyecto de una manera más moderna e interactiva. En ella se puede encontrar información sobre qué es Innovabots, cómo surgió la idea, cuáles son sus objetivos, el proceso de elaboración de los robots y la importancia de utilizar materiales reciclables.
+                </p>
+
+                <p>
+                    La página web funciona como una herramienta para comunicar nuestro trabajo y mostrar el proceso del proyecto, mientras que los robots representan la parte práctica, donde aplicamos nuestra creatividad, conocimientos tecnológicos y conciencia ambiental.
+                </p>
+
+                <p>
+                    Con Innovabots queremos demostrar que innovar no significa solamente crear algo nuevo, sino también encontrar nuevas formas de aprovechar los recursos que ya tenemos, promoviendo el reciclaje, la creatividad y el aprendizaje tecnológico.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= QUIÉNES SOMOS ================= -->
+
+    <section id="nosotros">
+
+        <div class="container">
+
+            <div class="titulo">
+
+                <h2>
+                    🌱 ¿Quiénes somos?
+                </h2>
+
+                <p>
+                    Microempresa escolar tecnológica y ecológica
+                    creada por estudiantes.
+                </p>
+
+            </div>
+
+
+            <div class="cards">
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        🎯
+                    </div>
+
+                    <h3>
+                        Misión
+                    </h3>
+
+                    <p>
+                        Microempresa escolar tecnológica y ecológica
+                        creada por estudiantes para fomentar la robótica
+                        sostenible y accesible.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        🔭
+                    </div>
+
+                    <h3>
+                        Visión
+                    </h3>
+
+                    <p>
+                        Aspiramos a ser un proyecto modelo que impulse
+                        la robótica ecológica y el desarrollo de una
+                        sociedad responsable e innovadora.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= PROPUESTA DE VALOR ================= -->
+
+    <section class="propuesta">
+
+        <div class="container">
+
+            <div class="titulo">
+
+                <h2>
+                    💡 Nuestra Propuesta de Valor
+                </h2>
+
+                <p>
+                    Tecnología accesible y aprendizaje
+                    unidos al cuidado del medio ambiente.
+                </p>
+
+            </div>
+
+
+            <div class="valor-box">
+
+                <div class="valor-texto">
+
+                    <p>
+                        Robots de entretenimiento y aprendizaje
+                        fabricados con materiales reutilizados
+                        (cartón, tapas plásticas, ligas) y
+                        componentes electrónicos básicos.
+                    </p>
+
+                    <br>
+
+                    <p>
+                        Una solución económica que une la tecnología
+                        con el cuidado del medio ambiente.
+                    </p>
+
+                </div>
+
+
+                <ul class="valor-lista">
+
+                    <li>
+                        Robots de entretenimiento y aprendizaje
+                    </li>
+
+                    <li>
+                        Materiales reutilizados
+                    </li>
+
+                    <li>
+                        Componentes electrónicos básicos
+                    </li>
+
+                    <li>
+                        Solución económica
+                    </li>
+
+                    <li>
+                        Cuidado del medio ambiente
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= OBJETIVOS ================= -->
+
+    <section id="objetivos">
+
+        <div class="container">
+
+            <div class="titulo">
+
+                <h2>
+                    🎯 Nuestros Objetivos
+                </h2>
+
+                <p>
+                    Lo que buscamos lograr con nuestro proyecto.
+                </p>
+
+            </div>
+
+
+            <div class="objetivos">
+
+                <div class="objetivo">
+
+                    <div class="numero">
+                        01
+                    </div>
+
+                    <p>
+                        Fomentar la creatividad, el trabajo en equipo
+                        y la conciencia ecológica a través del
+                        aprendizaje práctico.
+                    </p>
+
+                </div>
+
+
+                <div class="objetivo">
+
+                    <div class="numero">
+                        02
+                    </div>
+
+                    <p>
+                        Promover el uso responsable de los recursos
+                        mediante la reutilización de materiales.
+                    </p>
+
+                </div>
+
+
+                <div class="objetivo">
+
+                    <div class="numero">
+                        03
+                    </div>
+
+                    <p>
+                        Desarrollar habilidades tecnológicas mediante
+                        la construcción y experimentación con robots.
+                    </p>
+
+                </div>
+
+
+                <div class="objetivo">
+
+                    <div class="numero">
+                        04
+                    </div>
+
+                    <p>
+                        Demostrar que la tecnología puede combinarse
+                        con el cuidado y la protección del medio ambiente.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= EQUIPO ================= -->
+
+    <section id="equipo">
+
+        <div class="container">
+
+            <div class="titulo">
+
+                <h2>
+                    👥 Equipo de Trabajo
+                </h2>
+
+                <p>
+                    Organigrama de Innovabots
+                </p>
+
+            </div>
+
+
+            <div class="equipo">
+
+
+                <div class="persona">
+
+                    <div class="avatar">
+                        IS
+                    </div>
+
+                    <h3>
+                        Isabel Sofía Zabala
+                    </h3>
+
+                    <p>
+                        Directora General
+                    </p>
+
+                </div>
+
+
+                <div class="persona">
+
+                    <div class="avatar">
+                        LS
+                    </div>
+
+                    <h3>
+                        Laura Sofía Camelo
+                    </h3>
+
+                    <p>
+                        Creadora y encargada de robots
+                    </p>
+
+                </div>
+
+
+                <div class="persona">
+
+                    <div class="avatar">
+                        VM
+                    </div>
+
+                    <h3>
+                        Valery Méndez
+                    </h3>
+
+                    <p>
+                        Finanzas
+                    </p>
+
+                </div>
+
+
+                <div class="persona">
+
+                    <div class="avatar">
+                        MO
+                    </div>
+
+                    <h3>
+                        Melanny Oliveros
+                    </h3>
+
+                    <p>
+                        Publicidad
+                    </p>
+
+                </div>
+
+
+                <div class="persona">
+
+                    <div class="avatar">
+                        EO
+                    </div>
+
+                    <h3>
+                        Evelyn Obando
+                    </h3>
+
+                    <p>
+                        Documentación
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= LEMA ================= -->
+
+    <section class="lema-section">
+
+        <div class="container">
+
+            <h2>
+                🤖 Pequeños robots, grandes ideas.
+            </h2>
+
+            <p>
+                Innovar también significa encontrar nuevas
+                formas de aprovechar los recursos que ya tenemos.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= VIDEOS ================= -->
+
+    <section id="videos">
+
+        <div class="container">
+
+            <div class="titulo">
+
+                <h2>
+                    🎬 Algunos Videos
+                </h2>
+
+                <p>
+                    Conoce algunos de los proyectos
+                    y creaciones tecnológicas.
+                </p>
+
+            </div>
+
+
+            <div class="videos">
+
+
+                <div class="video-card">
+
+                    <div class="video-top">
+                        🔬
+                    </div>
+
+                    <div class="video-info">
+
+                        <h3>
+                            Microscopio casero
+                        </h3>
+
+                        <p>
+                            Proyecto creativo utilizando
+                            recursos accesibles.
+                        </p>
+
+                        <a
+                            class="video-link"
+                            href="https://youtu.be/B5lhdKUMe_g?si=4B_THkMLDrD3czgh"
+                            target="_blank"
+                        >
+                            ▶ Ver video
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="video-card">
+
+                    <div class="video-top">
+                        💡
+                    </div>
+
+                    <div class="video-info">
+
+                        <h3>
+                            Lámpara de escritorio
+                        </h3>
+
+                        <p>
+                            Proyecto tecnológico para crear
+                            una lámpara de escritorio.
+                        </p>
+
+                        <a
+                            class="video-link"
+                            href="https://youtu.be/oQ1xT-3baLA?si=qjpsoXF912QggguK"
+                            target="_blank"
+                        >
+                            ▶ Ver video
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="video-card">
+
+                    <div class="video-top">
+                        🤖
+                    </div>
+
+                    <div class="video-info">
+
+                        <h3>
+                            Robot
+                        </h3>
+
+                        <p>
+                            Conoce uno de los robots
+                            desarrollados en el proyecto.
+                        </p>
+
+                        <a
+                            class="video-link"
+                            href="https://youtu.be/pCM4Xc0Nyns?si=XqgBAeqi_feyzFLS"
+                            target="_blank"
+                        >
+                            ▶ Ver video
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="video-card">
+
+                    <div class="video-top">
+                        ⚙️
+                    </div>
+
+                    <div class="video-info">
+
+                        <h3>
+                            Licuadora
+                        </h3>
+
+                        <p>
+                            Proyecto de construcción
+                            y experimentación tecnológica.
+                        </p>
+
+                        <a
+                            class="video-link"
+                            href="https://youtu.be/QJjoxFUF1Zw?si=dfusYr3nPvRUFI0a"
+                            target="_blank"
+                        >
+                            ▶ Ver video
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="video-card">
+
+                    <div class="video-top">
+                        🎡
+                    </div>
+
+                    <div class="video-info">
+
+                        <h3>
+                            Rueda de la fortuna
+                        </h3>
+
+                        <p>
+                            Una creación que combina
+                            movimiento y tecnología.
+                        </p>
+
+                        <a
+                            class="video-link"
+                            href="https://youtu.be/M_h_5aM-ri4?si=gyr5_eWAM8xktmfz"
+                            target="_blank"
+                        >
+                            ▶ Ver video
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="video-card">
+
+                    <div class="video-top">
+                        🌬️
+                    </div>
+
+                    <div class="video-info">
+
+                        <h3>
+                            Mini generador eólico
+                        </h3>
+
+                        <p>
+                            Proyecto relacionado con el
+                            aprovechamiento de la energía del viento.
+                        </p>
+
+                        <a
+                            class="video-link"
+                            href="https://youtu.be/rFUkeqLT9xc?si=bXIPOY6xxRPi0Hh9"
+                            target="_blank"
+                        >
+                            ▶ Ver video
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= FAQ ================= -->
+
+    <section id="faq">
+
+        <div class="container">
+
+            <div class="titulo">
+
+                <h2>
+                    🌎 Preguntas Frecuentes
+                </h2>
+
+                <p>
+                    FAQ Ecológicas de Innovabots
+                </p>
+
+            </div>
+
+
+            <div class="faq">
+
+
+                <details>
+
+                    <summary>
+                        ¿Qué materiales se utilizan para construir los robots?
+                    </summary>
+
+                    <p>
+                        Se emplean materiales reutilizados y de fácil
+                        recolección como cartón, tapas plásticas, botellas,
+                        pinchos y ligas, combinados con componentes
+                        electrónicos básicos.
+                    </p>
+
+                </details>
+
+
+
+                <details>
+
+                    <summary>
+                        ¿Por qué los robots de InnovaBOTS son económicos?
+                    </summary>
+
+                    <p>
+                        Porque gran parte de su estructura se basa en el
+                        aprovechamiento de recursos reciclables con costo
+                        de cero pesos, requiriendo inversión únicamente
+                        en componentes electrónicos esenciales como
+                        motores, baterías y cables.
+                    </p>
+
+                </details>
+
+
+
+                <details>
+
+                    <summary>
+                        ¿Cómo contribuye el proyecto al cuidado del medio ambiente?
+                    </summary>
+
+                    <p>
+                        Promueve el reciclaje y la reutilización de residuos
+                        comunes que de otro modo aumentarían la contaminación,
+                        demostrando que la tecnología puede desarrollarse
+                        de forma sostenible y responsable con el planeta.
+                    </p>
+
+                </details>
+
+
+
+                <details>
+
+                    <summary>
+                        ¿Quiénes pueden participar o adquirir los productos
+                        y talleres de InnovaBOTS?
+                    </summary>
+
+                    <p>
+                        Está dirigido principalmente a instituciones educativas,
+                        estudiantes, docentes y talleres que buscan alternativas
+                        innovadoras, prácticas y accesibles para la enseñanza
+                        de la robótica.
+                    </p>
+
+                </details>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <img
+            src="imagenes/logo.jpg"
+            alt="Logo Innovabots"
+        >
+
+        <h2>
+            INNOVABOTS
+        </h2>
+
+        <p>
+            Tecnología + Creatividad + Medio Ambiente
+        </p>
+
+        <p class="footer-lema">
+            "Pequeños robots, grandes ideas."
+        </p>
+
+        <p
+            style="
+                margin-top:20px;
+                font-size:0.85rem;
+            "
+        >
+            Proyecto escolar de innovación
+            tecnológica y ecológica.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
